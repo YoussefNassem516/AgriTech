@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0F5A2A">
+<meta name="description" content="Field Shift: منصة زراعة ذكية — طقس، ري، خريطة حرارية، إنذار مبكر ومساعد زراعي / Smart farming platform">
+<title data-en="Map | Field Shift">الخريطة | Field Shift</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%231E8A3C%27/%3E%3Cpath d=%27M9 23c0-8 5-13 14-14-1 9-6 14-14 14z%27 fill=%27%23fff%27/%3E%3C/svg%3E">
+<script>(function(){try{var t=localStorage.getItem("fs_theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";var l=localStorage.getItem("fs_lang")==="en"?"en":"ar",h=document.documentElement;h.dataset.theme=t;h.lang=l;h.dir=l==="ar"?"rtl":"ltr"}catch(e){}})()</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="map" data-need="om,fields">
+<main>
+<section class="phead" style="padding-bottom:10px"><div class="wrap">
+ <h1 data-en="Farm map">خريطة المزرعة</h1>
+ <p data-en="A heat map around your farm, with risk, irrigation, crop health and satellite views. Tap any point to analyse it.">خريطة حرارية حوالين مزرعتك، مع المخاطر والري وصحة المحصول والقمر الصناعي. اضغط أي نقطة لتحليلها.</p>
+</div></section>
+<section class="sec" style="padding-top:8px"><div class="wrap">
+ <div class="maptools">
+  <div class="seg" id="layers" role="group" aria-label="طبقات الخريطة" data-en-aria="Map layers">
+   <button type="button" data-l="heat" aria-pressed="true"><svg><use href="#i-heat"/></svg><span data-en="Heat map">خريطة حرارية</span></button>
+   <button type="button" data-l="risk" aria-pressed="false"><svg><use href="#i-alert"/></svg><span data-en="Risk">المخاطر</span></button>
+   <button type="button" data-l="irr" aria-pressed="false"><svg><use href="#i-drop"/></svg><span data-en="Irrigation">الري</span></button>
+   <button type="button" data-l="ndvi" aria-pressed="false"><svg><use href="#i-leaf"/></svg><span data-en="Crop health">صحة المحصول</span></button>
+   <button type="button" data-l="sat" aria-pressed="false"><svg><use href="#i-sat"/></svg><span data-en="Satellite">قمر صناعي</span></button>
+  </div>
+  <div class="seg sub" id="hv" role="group" aria-label="مؤشر الخريطة الحرارية" data-en-aria="Heat map indicator">
+   <button type="button" data-v="tmax" aria-pressed="true"><svg><use href="#i-temp"/></svg><span data-en="Temperature">الحرارة</span></button>
+   <button type="button" data-v="rain" aria-pressed="false"><svg><use href="#i-rain"/></svg><span data-en="Rain">المطر</span></button>
+   <button type="button" data-v="et0" aria-pressed="false"><svg><use href="#i-drop"/></svg><span data-en="Evaporation">التبخر</span></button>
+  </div>
+  <label class="op" id="mapop"><span data-en="Opacity">الشفافية</span><input type="range" id="op" min="20" max="100" value="70"></label>
+ </div>
+ <div class="mapgrid">
+  <div class="mapbox"><div id="fmap" role="application" aria-label="خريطة المزرعة التفاعلية" data-en-aria="Interactive farm map"></div>
+   <div class="maptag" id="maptag"></div><div class="legend" id="legend"></div></div>
+  <aside class="card panel" id="mpanel" aria-live="polite"></aside>
+ </div>
+</div></section>
+</main>
+
+<script src="shell.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="app.js"></script>
+<script src="smart.js"></script>
+<script src="farmmap.js"></script>
+</body>
+</html>

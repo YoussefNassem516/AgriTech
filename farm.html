@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0F5A2A">
+<meta name="description" content="Field Shift: منصة زراعة ذكية — طقس، ري، خريطة حرارية، إنذار مبكر ومساعد زراعي / Smart farming platform">
+<title data-en="My farm | Field Shift">بيانات المزرعة | Field Shift</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%231E8A3C%27/%3E%3Cpath d=%27M9 23c0-8 5-13 14-14-1 9-6 14-14 14z%27 fill=%27%23fff%27/%3E%3C/svg%3E">
+<script>(function(){try{var t=localStorage.getItem("fs_theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";var l=localStorage.getItem("fs_lang")==="en"?"en":"ar",h=document.documentElement;h.dataset.theme=t;h.lang=l;h.dir=l==="ar"?"rtl":"ltr"}catch(e){}})()</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="farm" data-need="fields">
+<main>
+<section class="phead"><div class="wrap">
+ <span class="eyebrow" data-en="Step one">الخطوة الأولى</span>
+ <h1 data-en="Your farm">بيانات مزرعتك</h1>
+ <p data-en="Tell us where your land is and what you grow. The more you know, the more accurate the advice. Everything saves automatically.">حدّد مكان أرضك واللي بتزرعه. كل ما تعرف أكتر الحسابات بتبقى أدق، والحفظ تلقائي.</p>
+</div></section>
+<section class="sec" style="padding-top:8px"><div class="wrap">
+ <div class="form">
+  <form class="card" id="farmform" autocomplete="off" novalidate>
+   <div class="fsec"><h3><b>1</b><span data-en="Location">المكان</span></h3>
+    <div class="fld"><div class="sbox"><div class="row"><input type="search" id="q" data-en-ph="Village, district or governorate" placeholder="اكتب اسم القرية أو المركز أو المحافظة" aria-label="مكان المزرعة" data-en-aria="Farm location"><button class="btn" id="sbtn" type="button" data-en="Search">بحث</button></div><div id="sug" role="listbox"></div></div>
+     <div class="chips"><button class="chip" type="button" id="locbtn" data-en="📍 My location">📍 موقعي الحالي</button>
+      <button class="chip" type="button" data-demo="30.79,31.00,الغربية - الدلتا" data-en="Delta">الدلتا</button>
+      <button class="chip" type="button" data-demo="29.30,30.85,الفيوم" data-en="Fayoum">الفيوم</button>
+      <button class="chip" type="button" data-demo="27.18,31.18,أسيوط - الصعيد" data-en="Upper Egypt">الصعيد</button>
+      <button class="chip" type="button" data-demo="30.47,30.10,النوبارية" data-en="Nubaria">النوبارية</button></div>
+     <div class="coord" id="coord" aria-live="polite"></div></div>
+   </div>
+   <div class="fsec"><h3><b>2</b><span data-en="Crop">المحصول</span></h3>
+    <div class="frow"><div class="fld"><label for="crop" data-en="Crop">المحصول</label><select id="crop"></select></div>
+     <div class="fld"><label for="stage" data-en="Growth stage">مرحلة النمو</label><select id="stage"></select></div></div>
+    <div class="frow"><div class="fld"><label for="soil" data-en="Soil type">نوع التربة</label><select id="soil"></select></div>
+     <div class="fld"><label for="area" data-en="Area (feddan)">المساحة (فدان)</label><input type="number" id="area" min="0.1" max="5000" step="0.1" data-en-ph="e.g. 3" placeholder="مثال: 3"></div></div>
+    <small class="note" id="areahint"></small>
+   </div>
+   <div class="fsec"><h3><b>3</b><span data-en="Irrigation">الري</span></h3>
+    <div class="fld"><label for="method" data-en="Irrigation method">طريقة الري</label><select id="method"></select></div>
+    <details class="adv"><summary data-en="Advanced (optional)">إعدادات متقدمة (اختياري)</summary>
+     <div class="frow">
+      <div class="fld"><label for="cnt" data-en="Irrigations per week">عدد الريّات في الأسبوع</label><input type="number" id="cnt" min="0" max="14" step="1"></div>
+      <div class="fld"><label for="depth" data-en="Water depth per irrigation (mm)">عمق مياه الريّة (مم)</label><input type="number" id="depth" min="0" max="300" step="1"><small data-en="1 mm = 4.2 m³ per feddan">١ مم = 4.2 م³ للفدان</small></div>
+      <div class="fld"><label for="last" data-en="Last irrigation">آخر ريّة كانت من؟</label><select id="last"></select></div>
+      <div class="fld"><label for="price" data-en="Water price per m³ (EGP)">سعر المتر المكعب (جنيه)</label><input type="number" id="price" min="0" step="0.05" data-en-ph="Leave empty to hide cost" placeholder="اتركه فاضي لو مش عايز تكلفة"></div>
+     </div></details>
+   </div>
+   <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn lg" type="submit" id="save" data-en="Save and open dashboard">حفظ وفتح لوحة التحكم</button><button class="btn lg gh" type="button" id="reset" data-en="Clear data">مسح البيانات</button></div>
+  </form>
+  <div class="card sticky"><h3 data-en="Pin your land on the map">حدّد الدبوس على الخريطة</h3><p class="note" style="margin-bottom:10px" data-en="Tap your land or drag the pin. We detect the field boundary automatically when it is mapped in OpenStreetMap.">اضغط على أرضك أو اسحب الدبوس. هنحدد حدود الحقل تلقائيًا لو متسجلة في OpenStreetMap.</p><div id="pick" role="application" aria-label="خريطة اختيار الموقع" data-en-aria="Location picker map"></div><p class="note" style="margin-top:10px" id="pickstat"></p></div>
+ </div>
+</div></section>
+</main>
+
+<script src="shell.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

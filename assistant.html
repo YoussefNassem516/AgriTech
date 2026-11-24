@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0F5A2A">
+<meta name="description" content="Field Shift: منصة زراعة ذكية — طقس، ري، خريطة حرارية، إنذار مبكر ومساعد زراعي / Smart farming platform">
+<title data-en="Assistant | Field Shift">المساعد | Field Shift</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%231E8A3C%27/%3E%3Cpath d=%27M9 23c0-8 5-13 14-14-1 9-6 14-14 14z%27 fill=%27%23fff%27/%3E%3C/svg%3E">
+<script>(function(){try{var t=localStorage.getItem("fs_theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";var l=localStorage.getItem("fs_lang")==="en"?"en":"ar",h=document.documentElement;h.dataset.theme=t;h.lang=l;h.dir=l==="ar"?"rtl":"ltr"}catch(e){}})()</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="assistant" data-need="om,nasa">
+<main>
+<section class="phead" style="padding-bottom:10px"><div class="wrap">
+ <h1 data-en="Farm assistant">المساعد الزراعي</h1>
+ <p data-en="Type or tap the microphone. The assistant answers from your farm's data.">اكتب أو دوس على الميكروفون. المساعد بيرد من بيانات مزرعتك.</p>
+</div></section>
+<section class="sec" style="padding-top:8px"><div class="wrap">
+ <div class="chatwrap">
+  <div class="card chat">
+   <div class="chat-h"><span class="av"><svg stroke="#fff" fill="none"><use href="#i-leaf"/></svg></span><div><b data-en="Field Shift assistant">مساعد Field Shift</b><small id="chatsub" data-en="Welcome">مرحبًا بيك</small></div><span class="mode" id="mode" data-en="Local mode">وضع محلي</span></div>
+   <div id="msgs" aria-live="polite" aria-label="المحادثة" data-en-aria="Conversation"></div>
+   <div class="sugg" id="sugg"></div>
+   <div class="chat-f">
+    <div class="inrow">
+     <button class="mic" id="mic" type="button" aria-label="ابدأ التسجيل الصوتي" data-en-aria="Start voice recording"><svg><use href="#i-mic"/></svg></button>
+     <input type="text" id="cin" placeholder="اكتب سؤالك هنا… مثال: أروي النهارده ولا أستنى؟" data-en-ph="Type your question…" aria-label="اكتب سؤالك" data-en-aria="Type your question" autocomplete="off">
+     <button class="btn lg" id="csend" type="button" aria-label="إرسال" data-en-aria="Send"><svg><use href="#i-send"/></svg></button>
+    </div>
+    <div class="vstat"><span class="live" id="live"><i></i><span id="livetxt">بسمعك… اتكلم دلوقتي</span></span>
+     <button class="btn sm gh" id="mstop" type="button" style="display:none"><svg width="16" height="16"><use href="#i-stop"/></svg> <span data-en="Stop">إيقاف</span></button>
+     <button class="btn sm gh" id="mrep" type="button" style="display:none" data-en="Try again">🔁 أعد المحاولة</button>
+     <button class="btn sm gh" id="spkrep" type="button" style="display:none"><svg width="16" height="16"><use href="#i-spk"/></svg> <span data-en="Replay answer">أعد الاستماع للرد</span></button>
+     <button class="btn sm gh" id="spkstop" type="button" style="display:none"><svg width="16" height="16"><use href="#i-stop"/></svg> <span data-en="Stop audio">إيقاف الصوت</span></button>
+     <label><input type="checkbox" id="tts" checked> <span data-en="Read answers aloud">اقرأ الرد بصوت عالي</span></label>
+     <span id="vnote"></span></div>
+   </div>
+  </div>
+  <aside class="side">
+   <div class="card" style="margin-bottom:16px"><h3 data-en="Try asking">جرّب تسأل</h3><div class="qs" id="qs"></div></div>
+   <div class="card ctx"><h3 data-en="Farm context">بيانات المحادثة</h3><div id="ctxbox"></div><p class="note" style="margin-top:8px" data-en="The assistant uses this as context. Change it in “My farm”.">المساعد بيستخدم دي كسياق. غيّرها من «بيانات المزرعة».</p></div>
+  </aside>
+ </div>
+</div></section>
+</main>
+
+<script src="shell.js"></script>
+<script src="app.js"></script>
+<script src="smart.js"></script>
+<script src="config.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>
