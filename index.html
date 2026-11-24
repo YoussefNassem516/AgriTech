@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0F5A2A">
+<meta name="description" content="Field Shift: منصة زراعة ذكية — طقس، ري، خريطة حرارية، إنذار مبكر ومساعد زراعي / Smart farming platform">
+<title data-en="Field Shift | Smart farming platform">Field Shift | منصة الزراعة الذكية</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%231E8A3C%27/%3E%3Cpath d=%27M9 23c0-8 5-13 14-14-1 9-6 14-14 14z%27 fill=%27%23fff%27/%3E%3C/svg%3E">
+<script>(function(){try{var t=localStorage.getItem("fs_theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";var l=localStorage.getItem("fs_lang")==="en"?"en":"ar",h=document.documentElement;h.dataset.theme=t;h.lang=l;h.dir=l==="ar"?"rtl":"ltr"}catch(e){}})()</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home" data-need="om">
+<main>
+<section class="hero">
+ <div class="wrap">
+  <div>
+   <div class="hi" id="greet"></div>
+   <h1 data-en="Know your land.<br>Irrigate with confidence.">اعرف أرضك،<br>وقرّر ريّك بثقة</h1>
+   <p class="lead" data-en="Field Shift combines your farm's weather, satellite imagery and scientific irrigation maths into one simple picture, with early warnings and an assistant you can talk to.">Field Shift بتجمع طقس أرضك وصور الأقمار الصناعية وحسابات الري العلمية في صورة واحدة بسيطة، مع إنذار مبكر ومساعد زراعي تكلّمه بصوتك.</p>
+   <div class="acts">
+    <a class="btn wh lg" id="heroCta" href="farm.html" data-en="Add your farm">ابدأ بإدخال مزرعتك</a>
+    <a class="btn wh gh lg" href="assistant.html"><svg><use href="#i-mic"/></svg><span data-en="Ask the assistant">اسأل المساعد</span></a>
+   </div>
+  </div>
+  <div class="glance" id="glance" aria-live="polite"></div>
+ </div>
+</section>
+
+<section class="sec">
+ <div class="wrap">
+  <div class="sh"><h2 data-en="Jump to">اختصارات سريعة</h2><p data-en="Every tool has its own page, so each one stays simple.">كل أداة في صفحة مستقلة عشان تفضل بسيطة وواضحة.</p></div>
+  <div class="grid g3">
+   <a class="card tile" href="dashboard.html"><span class="ico"><svg><use href="#i-grid"/></svg></span><h3 data-en="Dashboard">لوحة التحكم</h3><p data-en="Today's irrigation advice, weather and alerts at a glance.">نصيحة الري النهارده، الطقس، والتنبيهات في نظرة واحدة.</p><span class="go"><span data-en="Open">افتح</span><svg><use href="#i-arrow"/></svg></span></a>
+   <a class="card tile" href="farm.html"><span class="ico"><svg><use href="#i-pin"/></svg></span><h3 data-en="My farm">بيانات المزرعة</h3><p data-en="Set your location, crop, soil and irrigation method.">حدّد مكان أرضك والمحصول والتربة وطريقة الري.</p><span class="go"><span data-en="Open">افتح</span><svg><use href="#i-arrow"/></svg></span></a>
+   <a class="card tile" href="map.html"><span class="ico"><svg><use href="#i-heat"/></svg></span><h3 data-en="Heat map">الخريطة الحرارية</h3><p data-en="Temperature, rain, evaporation, risk and crop health on one map.">الحرارة والمطر والتبخر والمخاطر وصحة المحصول على خريطة واحدة.</p><span class="go"><span data-en="Open">افتح</span><svg><use href="#i-arrow"/></svg></span></a>
+   <a class="card tile" href="analytics.html"><span class="ico"><svg><use href="#i-chart"/></svg></span><h3 data-en="Analytics">التحليلات</h3><p data-en="Irrigation planner, what-if scenarios and early warnings.">محسّن الري، سيناريوهات «ماذا لو»، والإنذار المبكر.</p><span class="go"><span data-en="Open">افتح</span><svg><use href="#i-arrow"/></svg></span></a>
+   <a class="card tile" href="assistant.html"><span class="ico"><svg><use href="#i-chat"/></svg></span><h3 data-en="Assistant">المساعد الذكي</h3><p data-en="Ask in plain words or by voice and get answers from your farm's data.">اسأل بالكتابة أو بالصوت وهييجي الرد من بيانات مزرعتك.</p><span class="go"><span data-en="Open">افتح</span><svg><use href="#i-arrow"/></svg></span></a>
+  </div>
+ </div>
+</section>
+
+<section class="sec band">
+ <div class="wrap">
+  <div class="sh"><h2 data-en="How it works">إزاي بتشتغل؟</h2></div>
+  <div class="steps">
+   <div class="step"><h3 data-en="Tell us about your farm">عرّفنا بمزرعتك</h3><p data-en="Pick the location on the map, then choose crop, soil and how you irrigate.">اختار المكان على الخريطة، وبعدين المحصول والتربة وطريقة الري.</p></div>
+   <div class="step"><h3 data-en="We read the data">بنقرا البيانات</h3><p data-en="Forecasts, evaporation and satellite imagery for your exact spot.">توقعات الطقس والتبخر وصور القمر الصناعي لموقعك بالظبط.</p></div>
+   <div class="step"><h3 data-en="You get a clear decision">تاخد قرار واضح</h3><p data-en="When to irrigate, how much water, and what to watch out for this week.">إمتى تروي، وكام مياه، وإيه اللي تاخد بالك منه الأسبوع ده.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec">
+ <div class="wrap">
+  <div class="sh"><h2 data-en="What is Field Shift?">إيه هو Field Shift؟</h2><p data-en="A free, key-less web platform for Egyptian farms. Every number shows where it comes from: real data, forecast, calculated or estimate. Nothing is invented.">منصة ويب مجانية بدون مفاتيح للمزارع المصرية. كل رقم مكتوب جنبه مصدره: بيانات فعلية، توقع، محسوب، أو تقدير. ومفيش حاجة بتتألّف.</p></div>
+  <div class="srcs"><span class="src">Open-Meteo</span><span class="src">NASA POWER</span><span class="src">NASA GIBS · MODIS</span><span class="src">OpenStreetMap</span><span class="src">Esri World Imagery</span></div>
+ </div>
+</section>
+</main>
+
+<script src="shell.js"></script>
+<script src="app.js"></script>
+<script src="smart.js"></script>
+</body>
+</html>
